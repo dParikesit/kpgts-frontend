@@ -1,11 +1,31 @@
 import Link from 'next/link'
 import Router from 'next/router'
-import Auth from '../AuthController/Auth'
+import Auth from '../Controller/Auth'
 
 const logoutHandler = (e) => {
   e.preventDefault()
-  Auth.deAuthenticateUser()
-  Router.push('/login')
+  fetch(('http://localhost:3001/user/logout'), {
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+    body: ''
+  }).then(
+    res => res.json()
+  ).then(
+    res => {
+      Auth.removeRole();
+      console.log(res.message)
+    }
+  ).catch(
+    err => {
+      console.log(err)
+    }
+    
+  )
+  Router.push('/')
 }
 
 function NavigationRow (props) {

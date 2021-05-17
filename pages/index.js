@@ -2,37 +2,9 @@ import Head from 'next/head'
 import NavigationRow from '../components/TopBar/NavigationRow'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-import Auth from '../components/AuthController/Auth'
+import getPages from '../components/Controller/Pages'
 
-let pages = []
-
-if (Auth.getRole) {
-  pages = [
-    {
-      path: '/berita',
-      label: 'Berita',
-    },
-    {
-      path: '/logout',
-      label: 'Logout'
-    }
-  ]
-} else{
-  pages = [
-    {
-      path: '/berita',
-      label: 'Berita',
-    },
-    {
-      path: '/registration',
-      label: 'Registrasi',
-    },
-    {
-      path: '/login',
-      label: 'Login',
-    },
-  ]
-}
+let pages = getPages()
 
 export default function Home() {
   return (

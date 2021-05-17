@@ -1,22 +1,9 @@
 import NavigationRow from '../components/TopBar/NavigationRow'
-import Auth from '../components/AuthController/Auth'
 import Router from 'next/router'
-import { urlObjectKeys } from 'next/dist/next-server/lib/utils'
+import Auth from '../components/Controller/Auth'
+import getPages from '../components/Controller/Pages'
 
-const pages = [
-  {
-    path: '/berita',
-    label: 'Berita',
-  },
-  {
-    path: '/registration',
-    label: 'Registrasi',
-  },
-  {
-    path: '/login',
-    label: 'Login',
-  },
-]
+let pages = getPages()
 
 let user = {
   email: '',
@@ -29,10 +16,10 @@ const emailHandler = (e) => {user.email = e.target.value}
 const passwordHandler = (e) => {user.password = e.target.value}
 const submitHandler = (e) => {
   e.preventDefault()
-  Auth.deAuthenticateUser
-  fetch(('http://localhost:3001/login'), {
+  fetch(('http://localhost:3001/user/login'), {
     method: 'POST',
     mode: 'cors',
+    credentials: 'include',
     headers: {
       "Content-Type": 'application/json'
     },
@@ -41,7 +28,9 @@ const submitHandler = (e) => {
     (res) => res.json()
   ).then(
     (res) => {
-      Auth.authenticateUser(res.token, res.email, res.role)
+      console.log(res.message)
+      Auth.setRole(res.role)
+      console.log(Auth.getRole())
     }
   ).then(
     Router.push('/')
@@ -49,6 +38,7 @@ const submitHandler = (e) => {
 }
 
 function Login(){
+
   return(
     <>
       <NavigationRow pages={pages}/>

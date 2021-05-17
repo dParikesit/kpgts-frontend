@@ -1,20 +1,7 @@
-import Auth from '../components/AuthController/Auth'
 import NavigationRow from '../components/TopBar/NavigationRow'
+import getPages from '../components/Controller/Pages'
 
-const pages = [
-  {
-    path: '/berita',
-    label: 'Berita',
-  },
-  {
-    path: '/registration',
-    label: 'Registrasi',
-  },
-  {
-    path: '/login',
-    label: 'Login',
-  },
-]
+let pages = getPages()
 
 let user = {
   email: '',
@@ -27,23 +14,24 @@ const emailHandler = (e) => {user.email = e.target.value}
 const passwordHandler = (e) => {user.password = e.target.value}
 const submitHandler = (e) => {
   e.preventDefault()
-  fetch(('http://localhost:3001/register'), {
+  fetch(('http://localhost:3001/user/register'), {
     method: 'POST',
     mode: 'cors',
-    headers: {
-      "Content-Type": 'application/json'
+    headers:{
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(user),
   }).then(
-    (res) => res.json()
+    res => res.json()
+  ).then(
+    res => console.log(res.message)
   ).catch(
-    (err) => {console.log(err)}
+    (error) => {err = error}
   )
 }
 
 
 function registration(){
-  Auth.deAuthenticateUser()
   return (
     <>
       <NavigationRow pages={pages}/>
