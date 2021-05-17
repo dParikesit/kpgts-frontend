@@ -1,12 +1,12 @@
-import Head from 'next/head'
+/* eslint-disable react/react-in-jsx-scope */
 import NavigationRow from '../components/TopBar/NavigationRow'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
 import getPages from '../components/Controller/Pages'
-
-let pages = getPages()
+import { AuthContext } from '../components/Controller/AuthContext'
+import { useContext } from 'react'
 
 export default function Home() {
+  let Auth = useContext(AuthContext)
+  let pages = getPages(Auth)
   return (
     <>
       <NavigationRow pages={pages}/>

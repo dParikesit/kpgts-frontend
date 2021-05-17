@@ -1,6 +1,4 @@
-import Auth from './Auth'
 
-let role = Auth.getRole()
 let pageListNoUser = [
   {
     path: '/berita',
@@ -27,12 +25,10 @@ let pageListUser = [
   },
 ]
 
-function getPages(){
-  if (role==='User'){
+export default function getPages(role){
+  if (role.Role=='User'){
     return pageListUser
   } else{
     return pageListNoUser
   }
 }
-
-export default getPages

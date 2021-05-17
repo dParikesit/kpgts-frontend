@@ -1,17 +1,13 @@
-import createContext from 'react'
+import { createContext } from 'react'
 
 export const AuthContext = createContext()
 
-const role = ''
-
 export const AuthValue = {
-  Role: role,
+  Role: typeof window!=='undefined'? localStorage.getItem('role') : '',
   setRole: (newRole) => {
-    role = newRole;
-    localStorage.setItem('role', role)
+    localStorage.setItem('role', newRole)
   },
   removeRole: () => {
-    role = '';
     localStorage.removeItem('role')
   }
 }
