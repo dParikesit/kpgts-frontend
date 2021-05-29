@@ -1,23 +1,22 @@
 /* eslint-disable react/react-in-jsx-scope */
 import NavigationRow from '../components/TopBar/NavigationRow'
 import Router from 'next/router'
-import getPages from '../components/Controller/Pages'
 import { AuthContext } from '../components/Controller/AuthContext'
 import { useContext } from 'react'
 
 function Login(){
   let Auth = useContext(AuthContext)
-  let pages = getPages(Auth)
 
   let user = {
     email: '',
     password: ''
   }
 
-  const emailHandler = (e) => {user.email = e.target.value}
-  const passwordHandler = (e) => {user.password = e.target.value}
   const submitHandler = (e) => {
     e.preventDefault()
+    user.email = document.getElementById('email-address').value
+    user.password = document.getElementById('password').value
+
     fetch(('http://localhost:3001/user/login'), {
       method: 'POST',
       mode: 'cors',
@@ -31,9 +30,9 @@ function Login(){
     ).then(
       (res) => {
         console.log(res.message)
-        Auth.setRole(res.role)
+        Auth.addRole(res.role)
         console.log(res.role)
-        console.log(Auth.Role)
+        console.log(Auth.role)
       }
     ).then(
       Router.push('/')
@@ -41,7 +40,7 @@ function Login(){
   }
   return(
     <>
-      <NavigationRow pages={pages}/>
+      <NavigationRow />
       <div className='min-h-screen flex items-center justify-center bg-primary'>
         <div className='max-w-md w-full space-y-8'>
           <div>
@@ -55,11 +54,11 @@ function Login(){
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="email-address" className="sr-only">Email address</label>
-                <input id="email-address" onChange={emailHandler} name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address"></input>
+                <input id="email-address" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address"></input>
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">Password</label>
-                <input id="password" onChange={passwordHandler} name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password"></input>
+                <input id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password"></input>
               </div>
             </div>
             <div>
