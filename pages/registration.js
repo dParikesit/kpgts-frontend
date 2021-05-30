@@ -1,5 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import NavigationRow from '../components/TopBar/NavigationRow'
+import Router from 'next/router'
+
 
 let user = {
   email: '',
@@ -20,7 +22,10 @@ const submitHandler = (e) => {
   }).then(
     res => res.json()
   ).then(
-    res => console.log(res.message)
+    res => {
+      console.log(res.message);
+      Router.push('/login')
+    }
   ).catch(
     (error) => console.log(error)
   )

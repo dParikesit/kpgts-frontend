@@ -43,8 +43,12 @@ function NavigationRow () {
   if (Auth.role == 'User') {
     pages.push(
       {
+        path: '/account',
+        label: 'Account'
+      },
+      {
         path: '/logout',
-        label: 'logout',
+        label: 'Logout',
       },
     )
   } else {
