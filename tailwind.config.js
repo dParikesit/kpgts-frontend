@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
@@ -5,13 +7,12 @@ module.exports = {
     colors: {
         primary: '#f7e9dc',
         secondary: '#883726',
-        text: '#8caaaf',
+        text: '#7c9599',
     },
     extend: {
-      zIndex: {
-        '-10': '-10',
-      },
-      
+      backgroundImage: (theme)=>({
+        'kapal': "url('/img/bg.jpg')"
+      })
     },
   },
   variants: {

@@ -36,8 +36,8 @@ function registration(){
   return (
     <>
       <NavigationRow />
-      <div className='min-h-screen flex items-center justify-center bg-primary'>
-        <div className='max-w-md w-full space-y-8'>
+      <div className='h-screen w-screen flex items-center justify-center bg-primary'>
+        <div className='w-3/4 md:max-w-md'>
           <div>
             <img className='mx-auto h-48 w-auto' src='/img/logo.png' alt='logo'></img>
             <h2 className='mt-6 text-center text-3xl font-extrabold'>
