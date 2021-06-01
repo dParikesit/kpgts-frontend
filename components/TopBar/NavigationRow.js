@@ -77,18 +77,18 @@ function NavigationRow () {
   const items = pages.map((page)=>{
     return (
       <Link href={page.path} key={page.path}>
-        <button className='py-3 px-3 text-text text-l font-bold p-4'>
+        <a className='py-3 px-3 text-text text-l font-bold p-4'>
           {page.label}
-        </button>
+        </a>
       </Link>
     )
   }) 
   const hamburgerItems = pages.map((page)=>{
     return (
       <Link href={page.path} key={page.path}>
-        <button className='py-3 px-3 text-primary text-l font-bold p-4'>
+        <a className='py-3 px-3 text-primary text-l font-bold p-4'>
           {page.label}
-        </button>
+        </a>
       </Link>
     )
   })
@@ -96,16 +96,16 @@ function NavigationRow () {
   const profileItems = profile.map((page) => {
     if (page.path=='/logout'){
       return(
-        <button onClick={logoutHandler} className='py-2 px-3 text-primary text-l font-bold p-4'>
+        <a onClick={logoutHandler} className='py-2 px-3 text-primary text-l font-bold p-4'>
           Logout
-        </button>
+        </a>
       )
     } else{
       return(
         <Link href={page.path} key={page.path}>
-          <button className='py-2 px-3 text-primary text-l font-bold p-4'>
+          <a className='py-2 px-3 text-primary text-l font-bold p-4'>
             {page.label}
-          </button>
+          </a>
         </Link>
       )
     }

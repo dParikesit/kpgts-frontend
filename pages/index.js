@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      <header>
+      <div>
         <NavigationRow />
         <div className='bg-center bg-cover bg-kapal'>
           <div className='flex flex-col justify-center h-screen items-center justify-items-center'>
@@ -14,9 +14,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </header>
+      </div>
       <div>
-        <h1>Halo</h1>
+        
       </div>
     </>
   )

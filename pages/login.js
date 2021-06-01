@@ -39,7 +39,7 @@ function Login(){
   return(
     <>
       <NavigationRow />
-      <div className='h-screen w-screen flex items-center justify-center bg-primary'>
+      <div className='h-screen w-screen grid md:grid-cols-3 items-center justify-center bg-primary'>
         <div className='w-3/4 md:max-w-md'>
           <div>
             <img className='mx-auto h-48 w-auto' src='/img/logo.png' alt='logo'></img>
