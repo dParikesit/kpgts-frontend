@@ -1,5 +1,4 @@
 /* eslint-disable react/react-in-jsx-scope */
-import NavigationRow from '../components/TopBar/NavigationRow'
 import Router from 'next/router'
 
 
@@ -35,7 +34,6 @@ const submitHandler = (e) => {
 function registration(){
   return (
     <>
-      <NavigationRow />
       <div className='h-screen w-screen flex items-center justify-center bg-primary'>
         <div className='w-3/4 md:max-w-md'>
           <div>

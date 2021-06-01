@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import 'tailwindcss/tailwind.css'
 import { AuthContext } from '../components/Controller/AuthContext'
+import NavigationRow from '../components/TopBar/NavigationRow'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <AuthContext.Provider value = { {role, addRole, removeRole} }>
+      <NavigationRow />
       <Component {...pageProps} />
     </AuthContext.Provider>
   )
