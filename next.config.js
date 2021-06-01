@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   future: {
-    webpack5: false,
+    webpack5: true,
   },
 }
