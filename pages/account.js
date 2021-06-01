@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from 'react'
 import NavigationRow from '../components/TopBar/NavigationRow'

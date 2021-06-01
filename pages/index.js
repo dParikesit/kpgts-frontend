@@ -15,9 +15,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <div>
-        <h1>Halo</h1>
-      </div>
     </>
   )
 }
