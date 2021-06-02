@@ -125,17 +125,13 @@ function NavigationRow () {
         {items}
       </div>
 
-      <Popover.Group>
+      <Popover.Group className='overflow-hidden flex'>
         {/* Mobile button */}
         <Popover className='md:hidden'>
-          <Popover.Button ref={setReferenceElement}>
-            <div>
-              <button type="button" className="text-text focus:outline-none" aria-label="toggle menu">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
-                  <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                </svg>
-              </button>
-            </div>
+          <Popover.Button ref={setReferenceElement} className='text-text focus:outline-none'>
+            <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+              <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+            </svg>
           </Popover.Button>
 
           <Popover.Panel ref={setPopperElement} style={styles.popper} {...attributes.popper}>
@@ -148,16 +144,12 @@ function NavigationRow () {
         </Popover>
 
         {/* Profile icon */}
-        <Popover>
-          <Popover.Button ref={setReferenceElement}>
-            <div>
-              <button className="mx-4 text-secondary focus:outline-none" aria-label="show notifications">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-              </button>
-            </div>
+        <Popover className=''>
+          <Popover.Button ref={setReferenceElement} className='mx-4 text-secondary focus:outline-none'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
           </Popover.Button>
 
           <Popover.Panel ref={setPopperElement} style={styles.popper} {...attributes.popper}>

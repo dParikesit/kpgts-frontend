@@ -2,6 +2,7 @@
 import Router from 'next/router'
 import { AuthContext } from '../components/Controller/AuthContext'
 import { useContext } from 'react'
+/* import Image from 'next/image' */
 
 function Login(){
   let Auth = useContext(AuthContext)
@@ -41,6 +42,9 @@ function Login(){
         <div className='w-3/4 md:max-w-md'>
           <div>
             <img className='mx-auto h-48 w-auto' src='/img/logo.png' alt='logo'></img>
+            {/* <div className='mx-auto h-48 w-auto'>
+              <Image src='/img/logo.png' width={1080} height={878}  />
+            </div> */}
             <h2 className='mt-6 text-center text-xl font-bold md:text-3xl md:font-extrabold'>
               Sign in to your account
             </h2>
