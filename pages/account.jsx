@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
 function Account() {
+  // eslint-disable-next-line no-undef
+  let backend = process.env.NEXT_PUBLIC_BACKEND;
   const [form, setForm] = useState({
     email: "",
     sekolah: "SMAN 3 Semarang",
@@ -15,7 +17,7 @@ function Account() {
       telepon: document.getElementById("telepon").value,
       mapel: document.getElementById("mapel").value,
     };
-    fetch("http://localhost:3001/user/detail", {
+    fetch(backend+"/user/detail", {
       method: "POST",
       mode: "cors",
       credentials: "include",
@@ -30,7 +32,7 @@ function Account() {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:3001/user/detail", {
+    fetch(backend+"/user/detail", {
       method: "GET",
       mode: "cors",
       credentials: "include",

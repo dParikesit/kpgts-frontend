@@ -10,10 +10,13 @@ function NavigationRow() {
   let [referenceElement, setReferenceElement] = useState();
   let [popperElement, setPopperElement] = useState();
   let { styles, attributes } = usePopper(referenceElement, popperElement);
+  // eslint-disable-next-line no-undef
+  let backend = process.env.NEXT_PUBLIC_BACKEND;
 
   const logoutHandler = (e) => {
+    
     e.preventDefault();
-    fetch("http://localhost:3001/user/logout", {
+    fetch(backend+"/user/logout", {
       method: "POST",
       mode: "cors",
       credentials: "include",

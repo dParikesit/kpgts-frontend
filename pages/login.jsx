@@ -4,6 +4,8 @@ import { useContext } from "react";
 /* import Image from 'next/image' */
 
 function Login() {
+  // eslint-disable-next-line no-undef
+  let backend = process.env.NEXT_PUBLIC_BACKEND;
   let Auth = useContext(AuthContext);
 
   let user = {
@@ -16,7 +18,7 @@ function Login() {
     user.email = document.getElementById("email-address").value;
     user.password = document.getElementById("password").value;
 
-    fetch("http://localhost:3001/user/login", {
+    fetch(backend + "/user/login", {
       method: "POST",
       mode: "cors",
       credentials: "include",

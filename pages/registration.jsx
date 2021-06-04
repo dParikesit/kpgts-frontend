@@ -1,35 +1,37 @@
 import Router from "next/router";
 
-let user = {
-  email: "",
-  password: "",
-};
-
-const emailHandler = (e) => {
-  user.email = e.target.value;
-};
-const passwordHandler = (e) => {
-  user.password = e.target.value;
-};
-const submitHandler = (e) => {
-  e.preventDefault();
-  fetch("http://localhost:3001/user/register", {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res.message);
-      Router.push("/login");
-    })
-    .catch((error) => console.log(error));
-};
-
 function registration() {
+  // eslint-disable-next-line no-undef
+  let backend = process.env.NEXT_PUBLIC_BACKEND;
+  let user = {
+    email: "",
+    password: "",
+  };
+
+  const emailHandler = (e) => {
+    user.email = e.target.value;
+  };
+  const passwordHandler = (e) => {
+    user.password = e.target.value;
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    fetch(backend + "/user/register", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.message);
+        Router.push("/login");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <div className="h-screen w-screen flex items-center justify-center bg-primary">
