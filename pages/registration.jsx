@@ -16,7 +16,6 @@ function registration() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(backend)
     fetch(backend + "/user/register", {
       method: "POST",
       mode: "cors",
