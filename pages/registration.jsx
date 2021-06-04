@@ -16,9 +16,11 @@ function registration() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(backend)
     fetch(backend + "/user/register", {
       method: "POST",
       mode: "cors",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
