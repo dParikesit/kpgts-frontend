@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useState } from "react";
 
 function PostForm(props) {
@@ -48,6 +49,7 @@ function PostForm(props) {
     setContent("");
     setDate(new Date());
     setImage(null);
+    Router.replace(Router.asPath);
   };
   if (isOpen) {
     return (
