@@ -1,8 +1,7 @@
 import Router from "next/router";
 
-Router.push("/admin/berita");
-
 function Admin() {
+  Router.push("/admin/berita");
   return <h1>Halo Admin</h1>;
 }
 
