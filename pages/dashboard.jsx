@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Account() {
+function Dashboard() {
   // eslint-disable-next-line no-undef
   let backend = process.env.NEXT_PUBLIC_BACKEND;
   const [form, setForm] = useState({
@@ -17,7 +17,7 @@ function Account() {
       telepon: document.getElementById("telepon").value,
       mapel: document.getElementById("mapel").value,
     };
-    fetch(backend+"/user/detail", {
+    fetch(backend + "/user/detail", {
       method: "POST",
       mode: "cors",
       credentials: "include",
@@ -32,7 +32,7 @@ function Account() {
       });
   };
   useEffect(() => {
-    fetch(backend+"/user/detail", {
+    fetch(backend + "/user/detail", {
       method: "GET",
       mode: "cors",
       credentials: "include",
@@ -103,4 +103,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default Dashboard;

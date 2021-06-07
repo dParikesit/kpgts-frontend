@@ -31,8 +31,9 @@ function Login() {
       .then((res) => {
         console.log(res.message);
         Auth.addRole(res.role);
+        console.log(Auth.role)
       })
-      .then(Router.push("/account"));
+      .then(Router.push("/dashboard"));
   };
   return (
     <>

@@ -14,9 +14,8 @@ function NavigationRow() {
   let backend = process.env.NEXT_PUBLIC_BACKEND;
 
   const logoutHandler = (e) => {
-    
     e.preventDefault();
-    fetch(backend+"/user/logout", {
+    fetch(backend + "/user/logout", {
       method: "POST",
       mode: "cors",
       credentials: "include",
@@ -49,8 +48,19 @@ function NavigationRow() {
   if (Auth.role == "User") {
     profile.push(
       {
-        path: "/account",
-        label: "Account",
+        path: "/dashboard",
+        label: "Dashboard",
+      },
+      {
+        path: "/logout",
+        label: "Logout",
+      }
+    );
+  } else if (Auth.role == "Admin"){
+    profile.push(
+      {
+        path: "/admin/berita",
+        label: "Dashboard",
       },
       {
         path: "/logout",
