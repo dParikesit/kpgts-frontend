@@ -20,7 +20,9 @@ function Berita({ data }){
   )
 }
 export async function getServerSideProps() {
-  const result = await fetch("http://localhost:3001/post", {
+  // eslint-disable-next-line no-undef
+  const backend = process.env.BACKEND
+  const result = await fetch(backend+"/post", {
     method: "GET",
     mode: "cors",
   });
