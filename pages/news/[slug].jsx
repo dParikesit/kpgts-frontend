@@ -47,8 +47,9 @@ const News = ({ data }) => {
 export default News
 
 export async function getServerSideProps({params}) {
+  const backend = process.env.BACKEND
   const slug = params.slug
-  const result = await fetch("http://localhost:3001/post/"+slug, {
+  const result = await fetch(backend+"/post/"+slug, {
     method: "GET",
     mode: "cors",
   });
