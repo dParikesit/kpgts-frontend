@@ -17,8 +17,6 @@ function Peserta() {
       .then((res) => res.json())
       .then((res) => {
         setPeople(res);
-        console.log(people)
-        console.log(res)
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

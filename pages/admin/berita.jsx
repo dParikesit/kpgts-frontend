@@ -39,7 +39,6 @@ function Berita({ data }) {
 export async function getServerSideProps() {
   // eslint-disable-next-line no-undef
   const backend = process.env.BACKEND + "/post";
-  console.log(backend);
   const result = await fetch(backend, {
     method: "GET",
     credentials: "include",

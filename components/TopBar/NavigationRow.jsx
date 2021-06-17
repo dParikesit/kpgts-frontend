@@ -27,7 +27,6 @@ function NavigationRow() {
       .then((res) => res.json())
       .then((res) => {
         Auth.removeRole();
-        console.log(res.message);
       })
       .catch((err) => {
         console.log(err);

@@ -45,7 +45,6 @@ function Dashboard() {
       .then((res) => res.json())
       .then((res) => {
         setForm({ ...res });
-        console.log(form);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
