@@ -56,7 +56,7 @@ function NavigationRow() {
         label: "Logout",
       }
     );
-  } else if (Auth.role == "Admin"){
+  } else if (Auth.role == "Admin") {
     profile.push(
       {
         path: "/admin/berita",
@@ -83,7 +83,7 @@ function NavigationRow() {
   const items = pages.map((page) => {
     return (
       <Link href={page.path} key={page.path}>
-        <button className="py-3 px-3 text-text text-l font-bold p-4">
+        <button className="py-3 px-3 text-text text-l font-bold focus:outline-none p-4">
           {page.label}
         </button>
       </Link>
@@ -92,9 +92,11 @@ function NavigationRow() {
   const hamburgerItems = pages.map((page) => {
     return (
       <Link href={page.path} key={page.path}>
-        <button className="py-3 px-3 text-primary text-l font-bold p-4">
-          {page.label}
-        </button>
+        <div className='w-5/6 flex justify-center'>
+          <button className="py-3 px-3 text-primary text-l focus:outline-none font-bold p-4">
+            {page.label}
+          </button>
+        </div>
       </Link>
     );
   });
@@ -104,7 +106,7 @@ function NavigationRow() {
       return (
         <button
           onClick={logoutHandler}
-          className="py-2 px-3 text-primary text-l font-bold p-4"
+          className="py-2 px-3 text-primary text-l focus:outline-none font-bold p-4"
         >
           Logout
         </button>
@@ -112,7 +114,7 @@ function NavigationRow() {
     } else {
       return (
         <Link href={page.path} key={page.path}>
-          <button className="py-2 px-3 text-primary text-l font-bold p-4">
+          <button className="py-2 px-3 text-primary focus:outline-none text-l font-bold p-4">
             {page.label}
           </button>
         </Link>
@@ -123,7 +125,7 @@ function NavigationRow() {
     <nav className="fixed bg-primary h-16 w-screen px-3 flex items-center justify-end ">
       <div className="flex-1">
         <Link href="/" key="/">
-          <button className="mt-1">
+          <button className="mt-1 focus:outline-none">
             <Image
               src="/img/logo640x640.png"
               layout="fixed"
@@ -158,7 +160,7 @@ function NavigationRow() {
             {...attributes.popper}
           >
             <div className="w-screen flex justify-center">
-              <div className="flex flex-col items-center mt-2 rounded-lg bg-secondary w-5/6 ">
+              <div className="flex flex-col items-center mt-2 rounded-lg bg-secondary w-5/6">
                 {hamburgerItems}
               </div>
             </div>

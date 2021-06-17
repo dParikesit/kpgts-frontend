@@ -1,4 +1,4 @@
-import Router from "next/router";
+import {useRouter} from "next/router";
 import { useState } from "react";
 
 function PostForm(props) {
@@ -11,6 +11,14 @@ function PostForm(props) {
   let [content, setContent] = useState(props.content);
   let [date, setDate] = useState(props.date);
   let [image, setImage] = useState(props.image);
+  const Router = useRouter()
+  const pageChecker = ()=>{
+    if(Router.pathname === '/admin/berita'){
+      return('Create Post')
+    } else if (Router.pathname === '/news/[slug]'){
+      return('Edit Post')
+    }
+  }
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,6 +30,7 @@ function PostForm(props) {
   };
 
   const submitHandler = (e) => {
+    const destination = Router.pathname === "/admin/berita" ? "/post" : ("/post/"+slug)
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
@@ -30,8 +39,8 @@ function PostForm(props) {
     formData.append("content", content);
     formData.append("date", date);
     formData.append("image", image);
-    fetch(backend + "/post", {
-      method: "POST",
+    fetch(backend + destination, {
+      method: Router.pathname === "/admin/berita" ? "POST" : "PUT",
       mode: "cors",
       credentials: "include",
       body: formData,
@@ -51,6 +60,7 @@ function PostForm(props) {
     setImage(null);
     Router.replace(Router.asPath);
   };
+
   if (isOpen) {
     return (
       <div>
@@ -58,7 +68,7 @@ function PostForm(props) {
           className="px-4 py-2 font-medium tracking-wide text-primary transition-colors duration-200 transform bg-secondary rounded-md focus:outline-none"
           onClick={handleClick}
         >
-          Create Post
+          {pageChecker()}
         </button>
         <form
           id="postData"
@@ -138,6 +148,7 @@ function PostForm(props) {
               type="file"
               accept="image/jpg, image/png"
               alt="Upload image"
+              required={true}
               key={image}
             ></input>
           </div>
@@ -154,7 +165,7 @@ function PostForm(props) {
           className="px-4 py-2 font-medium tracking-wide text-primary transition-colors duration-200 transform bg-secondary rounded-md focus:outline-none"
           onClick={handleClick}
         >
-          Create Post
+          {pageChecker()}
         </button>
       </div>
     );

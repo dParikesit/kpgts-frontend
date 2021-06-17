@@ -31,13 +31,13 @@ function Login() {
       .then((res) => {
         console.log(res.message);
         Auth.addRole(res.role);
-        console.log(Auth.role)
-        if(Auth.role === 'User'){
-          Router.push("/dashboard")
-        } else if(Auth.role === 'Admin'){
-          Router.push("/admin/berita")
+        console.log(Auth.role);
+        if (Auth.role === "User") {
+          Router.push("/dashboard");
+        } else if (Auth.role === "Admin") {
+          Router.push("/admin/berita");
         }
-      })
+      });
   };
   return (
     <>

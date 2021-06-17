@@ -3,7 +3,6 @@ import NewsItem from "../../components/HeadlessComponent/NewsItem";
 import PostForm from "../../components/HeadlessComponent/PostForm";
 
 function Berita({ data }) {
-  console.log(data);
   let newsItems = data.map((newsItem) => {
     return (
       <NewsItem
