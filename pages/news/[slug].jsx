@@ -27,7 +27,7 @@ const News = ({ data }) => {
     <div className="py-16 bg-primary p-4 min-h-screen flex flex-col items-center">
       <div className='w-4/5'>{form()}</div>
       <h1 className="text-3xl capitalize">{data.title}</h1>
-      <div className="w-3/4 h-1/4 p-5">
+      <div className="w-3/4 h-1/4 p-5 md:w-1/2">
         <Image
           src={
             "data:" +
